@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: testgoweb-service
+  namespace: testgoweb
+spec:
+  selector:
+    app: testgoweb
+  ports:
+  - port: 80
+    targetPort: 8080
+

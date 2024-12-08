@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: testgoweb
+  labels:
+    app: testgoweb
+  namespace: testgoweb
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: testgoweb
+  template:
+    metadata:
+      labels:
+        app: testgoweb
+    spec:
+      imagePullSecrets:
+        - name: registrykey
+      containers:
+        - name: testgoweb
+          image: registry.ruadmin24.local/akirichenko/testgoweb:latest
